@@ -1,0 +1,145 @@
+{% extends 'dealer/home.html' %}
+{% block title %}
+
+{% endblock  %}
+
+{% block content %}
+{% load static %}
+
+	<!-- Home -->
+	<div class="home">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src=" {% static 'images/cv5.jpg' %} " data-speed="0.8"></div>
+		<div class="home_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content d-flex flex-row align-items-end justify-content-start">
+							<div class="home_title">Search</div>
+							<div class="breadcrumbs ml-auto">
+								<ul>
+									<li><a href=" {% static 'index.htmo' %} ">Home</a></li>
+									<li>Search Results</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Home Search -->
+	<div class="home_search">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container">
+						<div class="home_search_content">
+
+							<form action="" class="search_form d-flex flex-row align-items-start justfy-content-start" method="POST">
+								{% csrf_token %}
+								<div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
+									<div>
+										<select class="search_form_select" name="City">
+											<option disabled selected>City</option>
+											<option value="Lahore">Lahore</option>
+											<option value="Islamabad">Islamabad</option>
+											<option value="Karachi">Karachi</option>
+										</select>
+									</div>
+									<div>
+										<select class="search_form_select" name="Categorie">
+											<option disabled selected>Categories</option>
+											<option value="House">House</option>
+											<option value="Flat">Flat</option>
+											<option value="Farm">Farm</option>
+										</select>
+									</div>
+									<div>
+										<select class="search_form_select" name="Bedrooms" >
+											<option disabled selected>Bedrooms</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+										</select>
+									</div>
+									<div>
+										<select class="search_form_select" name="Bathrooms">
+											<option disabled selected>Bathrooms</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+										</select>
+									</div>
+									<div>
+										<select class="search_form_select" name="Area">
+											<option disabled selected>Area</option>
+											<option value="Marla">Marla</option>
+											<option value="Kanal">Kanal</option>
+										</select>
+									</div>
+								</div>
+								<button class="search_form_button ml-auto" type="submit">Search</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Properties -->
+	<div class="properties">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title" style="text-align:center">Properties</div>
+					<!-- <div class="section_subtitle">Search your dream home</div> -->
+				</div>
+			</div>
+			<div class="row properties_row">
+			
+			
+			{% if properties %}
+			{% for Properties in properties %}
+					{% if Properties.City.Name == a and Properties.Categorie.Type == b and Properties.Bedrooms.Number == d and Properties.Bathrooms.Number == c and Properties.Area.Unit == e %}
+								<!-- Property -->
+				<div class="col-xl-4 col-lg-6 property_col">
+					<div class="property">
+						<div class="property_image">
+							
+							<img  src="{{Properties.image.url}}" class="img-responsive" style="
+								width:500px;
+								height:250px;
+								background-size:cover;"
+								/>
+							
+							<div class="tag_featured property_tag"><a>{{Properties.City}}</a></div>
+						</div>
+						<div class="property_body text-center">
+							<div class="property_location">Offer</div>
+							<div class="property_title"><a href="/{{Properties.id}}">{{Properties.name}}</a></div>
+							<div class="property_price">Discount {{Properties.Offer}}</div>
+						</div>
+						<div class="property_footer d-flex flex-row align-items-center justify-content-start">
+							<div><div class="property_icon"><img src=" {% static 'images/icon_1.png' %} " alt=""></div><span>{{Properties.Area}}</span></div>
+							<div><div class="property_icon"><img src=" {% static 'images/icon_2.png' %} " alt=""></div><span>{{Properties.Bedrooms}} Bedrooms </span></div>
+							<div><div class="property_icon"><img src=" {% static 'images/icon_3.png' %} " alt=""></div><span>{{Properties.Bathrooms}} Bathrooms </span></div>
+						</div>
+					</div>
+				</div>
+					{% else %}
+					{% endif %}	
+			{% endfor %}
+			{% else %}
+			<h1>No Property Found</h1>
+			{% endif %}
+			</div>
+		</div>
+	</div> 
+	
+
+{% endblock  %}

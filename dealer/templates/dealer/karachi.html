@@ -1,0 +1,84 @@
+{% extends 'dealer/home.html' %}
+{% block title %}
+
+{% endblock  %}
+
+{% block content %}
+{% load static %}
+
+		<!-- Home -->
+
+	<div class="home">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src=" {% static 'images/karachicv2.jpg' %} " data-speed="0.8"></div>
+		<div class="home_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content d-flex flex-row align-items-end justify-content-start">
+							<div class="home_title">Karachi</div>
+							<div class="breadcrumbs ml-auto">
+								<ul>
+									<li><a href=" {% static 'index.htmo' %} ">Home</a></li>
+									<li>Search Results</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<!-- Properties -->
+	<div class="properties">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title" style="text-align:center">Properties</div>
+					<!-- <div class="section_subtitle">Search your dream home</div> -->
+				</div>
+			</div>
+			<div class="row properties_row">
+			
+			
+			{% if properties %}
+			{% for Properties in properties %}
+					{% if Properties.City.Name == "Karachi" %}
+								<!-- Property -->
+				<div class="col-xl-4 col-lg-6 property_col">
+					<div class="property">
+						<div class="property_image">
+							
+							<img  src="{{Properties.image.url}}" class="img-responsive" style="
+								width:500px;
+								height:250px;
+								background-size:cover;"
+								/>
+							
+							<div class="tag_featured property_tag"><a href="#">{{Properties.City}}</a></div>
+						</div>
+						<div class="property_body text-center">
+							<div class="property_location">Offer</div>
+							<div class="property_title"><a href=" {% static 'property.html' %} "></a></div>
+							<div class="property_price">Discount {{Properties.Offer}}</div>
+						</div>
+						<div class="property_footer d-flex flex-row align-items-center justify-content-start">
+							<div><div class="property_icon"><img src=" {% static 'images/icon_1.png' %} " alt=""></div><span>{{Properties.Area}}</span></div>
+							<div><div class="property_icon"><img src=" {% static 'images/icon_2.png' %} " alt=""></div><span>{{Properties.Bedrooms}} Bedrooms </span></div>
+							<div><div class="property_icon"><img src=" {% static 'images/icon_3.png' %} " alt=""></div><span>{{Properties.Bathrooms}} Bathrooms </span></div>
+						</div>
+					</div>
+				</div>
+					{% else %}
+					{% endif %}	
+			{% endfor %}
+			{% else %}
+			<h1>No Property Found</h1>
+			{% endif %}
+			</div>
+		</div>
+	</div> 
+	
+
+{% endblock  %}

@@ -1,0 +1,87 @@
+
+.zoom {
+  
+  width: 350px;
+  height: 250px;
+  background-size:cover;"
+}
+
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+} 
+
+#color {
+  color:darkblue;
+  -webkit-text-stroke-width: 3px;
+  text-shadow:
+   -1px -1px 0 white,  
+    1px -1px 0 white,
+    -1px 1px 0 white,
+     1px 1px 0 white;
+}
+#border
+{
+  font-size: xx-large;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+  
+}
+#color1
+{ 
+  -webkit-text-stroke-width: 3px;
+  font-weight: 500;
+  color:white;
+  font-size: x-large;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+#border1
+{
+  color: white;
+  font-size: 450% ;
+  text-align: right;
+  font-weight: 500;
+  font-stretch: extra-expanded;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+  
+}
+#border2
+{
+  color: white;
+  font-size: 200% ;
+  font-weight: 500;
+  font-stretch: extra-expanded;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+  
+}
+.message-bubble 
+{
+    padding: 10px 0px 10px 0px;
+}
+
+.message-bubble:nth-child(even) { background-color: #F5F5F5; }
+
+.message-bubble > *
+{
+    padding-left: 10px;    
+}
+
+.panel-body { padding: 0px; }
+
+.panel-heading { background-color: #3d6da7 !important; color: white !important; }
+
+

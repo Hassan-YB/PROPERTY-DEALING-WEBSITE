@@ -1,0 +1,90 @@
+{% extends 'dealer/home.html' %}
+{% block title %}
+<title>Contact</title>
+{% endblock  %}
+
+{% block content %}
+{% load static %}
+
+<!-- Home -->
+	<div class="home">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src=" {% static 'images/c1.jpeg' %} " data-speed="0.8"></div>
+		<div class="home_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content d-flex flex-row align-items-end justify-content-start">
+							<div class="home_title">Contact</div>
+							<div class="breadcrumbs ml-auto">
+								<ul>
+									<li><a href=" {% static 'index.htmo' %} ">Home</a></li>
+									<li>Contact</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+	<!-- Contact -->
+	
+	<hr>
+	<h3><Pre id="border2">   CONTACT FORM</Pre></h3>
+	<hr>
+
+	<div class="contact">
+		<div class="container">
+			<div class="row">
+
+				<!-- Contact Info -->
+				<div class="col-lg-4">
+					<div class="contact_info">
+						<div class="section_title">Get in touch with us</div>
+						<div class="section_subtitle"></div>
+						<div class="contact_info_text"><p>Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.Sed lectus urna, ultricies sit amet risus eget.</p></div>
+						<div class="contact_info_content">
+							<ul class="contact_info_list">
+								<li>
+									<div>Address:</div>
+									<div>1481 Creekside Lane Avila Beach, CA 93424</div>
+								</li>
+								<li>
+									<div>Phone:</div>
+									<div>+53 345 7953 32453</div>
+								</li>
+								<li>
+									<div>Email:</div>
+									<div>yourmail@gmail.com</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Contact Form -->
+				<div class="col-lg-8">
+					<div class="contact_form_container">
+						<form action="" class="contact_form" id="contact_form" method="POST">
+						{% csrf_token %}
+							<div class="row">
+								<!-- Email -->
+								<div class="col-lg-6" >
+									<input name="sender" type="email" class="contact_input" placeholder="E-mail" required="required" value="{{sender}}">
+								</div>
+							</div>
+							<div><input name="subject" type="text" class="contact_input" placeholder="Subject" value="{{subject}}"></div>
+							<div><textarea  name="message" class="contact_textarea contact_input" placeholder="Message" required="required" value="{{message}}"></textarea></div>
+							<button class="contact_button button" type="submit">Send</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock  %}
